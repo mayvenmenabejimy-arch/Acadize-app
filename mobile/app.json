@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "Acadize",
+    "slug": "acadize-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.acadize.app"
+    },
+    "android": {
+      "package": "com.acadize.app"
+    },
+    "plugins": [
+      "expo-status-bar"
+    ]
+  }
+}

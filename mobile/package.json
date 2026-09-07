@@ -1,0 +1,36 @@
+{
+  "name": "acadize-mobile",
+  "version": "1.0.0",
+  "main": "expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^15.0.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-navigation/bottom-tabs": "^6.6.1",
+    "@react-navigation/native": "^6.1.18",
+    "@react-navigation/native-stack": "^6.10.1",
+    "expo": "~57.0.20",
+    "expo-constants": "~57.0.17",
+    "expo-font": "~57.0.3",
+    "expo-linear-gradient": "~57.0.1",
+    "expo-status-bar": "~57.0.1",
+    "lucide-react-native": "^0.453.0",
+    "react": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-screens": "~4.26.0",
+    "react-native-svg": "15.15.4",
+    "react-native-webview": "13.16.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@types/react": "~19.2.0",
+    "typescript": "~6.0.3"
+  },
+  "private": true
+}
