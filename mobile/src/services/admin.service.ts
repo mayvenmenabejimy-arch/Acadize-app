@@ -192,7 +192,21 @@ export const adminService = {
   async getGamificationRules(): Promise<PointRule[]> {
     try {
       const res = await apiClient.get<any>(endpoints.adminGamificationRules(), true);
-      return Array.isArray(res) ? res : res?.rules || [];
+      const rawRules = Array.isArray(res) ? res : res?.rules || [];
+      const normalize = (t: string) => {
+        const m: Record<string, string> = {
+          lesson_completion: 'lesson_complete',
+          quiz_completion: 'quiz_complete',
+          exam_completion: 'exam_complete',
+          assignment_submission: 'assignment_submit',
+          course_completion: 'course_complete',
+        };
+        return m[t] || t;
+      };
+      return rawRules.map((r: any) => ({
+        ...r,
+        eventType: normalize(r.eventType),
+      }));
     } catch (error) {
       console.warn('Failed to fetch gamification rules:', error);
       return [];
@@ -203,11 +217,22 @@ export const adminService = {
    * Update gamification point rules
    */
   async updateGamificationRules(rules: { eventType: string; points: number; isActive?: boolean }[]): Promise<any> {
+    const normalize = (t: string) => {
+      const m: Record<string, string> = {
+        lesson_completion: 'lesson_complete',
+        quiz_completion: 'quiz_complete',
+        exam_completion: 'exam_complete',
+        assignment_submission: 'assignment_submit',
+        course_completion: 'course_complete',
+      };
+      return m[t] || t;
+    };
+
     return await apiClient.put(
       endpoints.adminGamificationRules(),
       {
         rules: rules.map(r => ({
-          eventType: r.eventType,
+          eventType: normalize(r.eventType),
           points: Number(r.points),
           isActive: r.isActive !== undefined ? r.isActive : true,
         })),

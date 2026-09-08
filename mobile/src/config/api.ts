@@ -58,7 +58,7 @@ export const endpoints = {
   courses: () => `${getApiUrl()}/courses`,
   userCourses: () => `${getApiUrl()}/courses/user`,
   courseDetails: (id: string | number) => `${getApiUrl()}/courses/${id}`,
-  courseLessons: (courseId: string | number) => `${getApiUrl()}/courses/${courseId}/lessons`,
+  courseLessons: (courseId: string | number) => `${getApiUrl()}/lessons/course/${courseId}`,
   joinPreview: (code: string) => `${getApiUrl()}/enrollments/join/preview?joinCode=${encodeURIComponent(code)}`,
   joinCourse: () => `${getApiUrl()}/enrollments/join`,
 
@@ -74,8 +74,11 @@ export const endpoints = {
   studentDashboard: () => `${getApiUrl()}/student/dashboard`,
   studentAttendance: () => `${getApiUrl()}/attendance/my`,
   studentAssignments: () => `${getApiUrl()}/assignments/student`,
+  studentAnnouncements: () => `${getApiUrl()}/announcements/student`,
+  studentMistakes: () => `${getApiUrl()}/mistakes/my-summary`,
+  studentExams: () => `${getApiUrl()}/exams/student/available`,
   scanAttendance: () => `${getApiUrl()}/attendance/scan`,
-  announcements: () => `${getApiUrl()}/announcements`,
+  announcements: () => `${getApiUrl()}/announcements/student`,
 
   // Teacher Endpoints
   teacherCourses: () => `${getApiUrl()}/courses/user`,

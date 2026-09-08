@@ -164,4 +164,30 @@ export const studentService = {
       return [];
     }
   },
+
+  /**
+   * Fetch student's mistake notebook summary
+   */
+  async getMistakesSummary(): Promise<any> {
+    try {
+      const res = await apiClient.get<any>(endpoints.studentMistakes(), true);
+      return res?.summary || res;
+    } catch (error) {
+      console.warn('Failed to fetch student mistakes summary:', error);
+      return null;
+    }
+  },
+
+  /**
+   * Fetch available exams for the student
+   */
+  async getAvailableExams(): Promise<any[]> {
+    try {
+      const res = await apiClient.get<any>(endpoints.studentExams(), true);
+      return res?.data || (Array.isArray(res) ? res : []);
+    } catch (error) {
+      console.warn('Failed to fetch available exams:', error);
+      return [];
+    }
+  },
 };
